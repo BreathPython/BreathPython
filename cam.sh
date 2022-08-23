@@ -307,4 +307,4 @@ checkfound
 
 banner
 dependencies
-Cam
+cam.sh
