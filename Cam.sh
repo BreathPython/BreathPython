@@ -15,6 +15,7 @@ printf "\033[1;92m  | (__  / _ \  | |\/| |  \e[0m\n"
 printf "\033[1;91m   \___|/_/ \_\ |_|  |_|  \e[0m\n"
 printf "\033[1;93m    WhatsApp: +923124788959    \e[0m\n\n"
 printf "\033[1;95m insta@itx.najeeb Facebook:fb.com/OyeJanu500\e[0m\n\n"
+
 printf "\n"
 
 
