@@ -27,4 +27,25 @@ command -v php > /dev/null 2>&1 || { echo >&2 "Php install nahe hai. lehaza php 
  
 
 
+
+}
+
+stop() {
+
+checkngrok=$(ps aux | grep -o "ngrok" | head -n1)
+checkphp=$(ps aux | grep -o "php" | head -n1)
+checkssh=$(ps aux | grep -o "ssh" | head -n1)
+if [[ $checkngrok == *'ngrok'* ]]; then
+pkill -f -2 ngrok > /dev/null 2>&1
+killall -2 ngrok > /dev/null 2>&1
+fi
+
+if [[ $checkphp == *'php'* ]]; then
+killall -2 php > /dev/null 2>&1
+fi
+if [[ $checkssh == *'ssh'* ]]; then
+killall -2 ssh > /dev/null 2>&1
+fi
+exit 1
+
 }
